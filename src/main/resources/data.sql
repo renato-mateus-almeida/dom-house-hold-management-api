@@ -1,0 +1,11 @@
+INSERT INTO HOUSE_HOLD (DESCRIPTION, Observation, REGIONAL_KWH_PRICE) VALUES ('Casa da mãe', 'Casa da mamis em Porto alegre', 0.65);
+INSERT INTO HOUSE_HOLD (DESCRIPTION, Observation, REGIONAL_KWH_PRICE) VALUES ('Casa da Letícia', 'Casa da minha baixinha em Pato Branco', 0.65);
+
+INSERT INTO ROOM (ID, HOUSE_HOLD_ID, NAME, DESCRIPTION) VALUES (1, 1, 'Quarto', NULL);
+INSERT INTO ROOM (ID, HOUSE_HOLD_ID, NAME, DESCRIPTION) VALUES (2, 1, 'Cozinha', NULL);
+
+INSERT INTO ITEM (ID, ROOM_ID, NAME, WATTAGE) VALUES (1, 1, 'Lampada Inteligênte', 15.);
+INSERT INTO ITEM (ID, ROOM_ID, NAME, WATTAGE) VALUES (2, 1, 'Ar condicionado', 1500);
+INSERT INTO ITEM (ID, ROOM_ID, NAME, WATTAGE) VALUES (3, 1, 'Abajur de mesa', 9.);
+
+INSERT INTO ITEM (ID, ROOM_ID, NAME, WATTAGE) VALUES (4, 2, 'Lampada Inteligênte', 15.);
