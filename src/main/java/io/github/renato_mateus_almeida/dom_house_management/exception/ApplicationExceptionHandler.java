@@ -12,8 +12,13 @@ import io.github.renato_mateus_almeida.dom_house_management.infra.dto.ExceptionM
 public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(NotFoundException.class)
-    private ResponseEntity<ExceptionMessageDTO> handleApplicationException(NotFoundException ex) {
+    private ResponseEntity<ExceptionMessageDTO> notFoundExceptionHandler(NotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ExceptionMessageDTO(ex.getMethod(), ex.getMessage()));
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    private ResponseEntity<ExceptionMessageDTO> IllegalArgumentExceptionHandler(IllegalArgumentException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ExceptionMessageDTO("[POST|PUT]", ex.getMessage()));
     }
     
 }

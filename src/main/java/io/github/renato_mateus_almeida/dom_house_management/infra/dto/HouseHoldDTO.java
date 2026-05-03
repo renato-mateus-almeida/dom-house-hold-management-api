@@ -7,8 +7,12 @@ public record HouseHoldDTO(String description, String observation, Double region
     
     public HouseHoldDTO {
 
-        if( StringUtils.isEmpty(description) || DoubleUtils.isEmpty(regionalKwhPrice)) {
-            throw new IllegalArgumentException();
+        if( StringUtils.isEmpty(description)) {
+            throw new IllegalArgumentException("description must be not null or empty");
+        }
+
+        if(DoubleUtils.isZero(regionalKwhPrice) || DoubleUtils.isNegative(regionalKwhPrice)){
+            throw new IllegalArgumentException("regionalKwhPrice must be greater than zero");
         }
     
     }
