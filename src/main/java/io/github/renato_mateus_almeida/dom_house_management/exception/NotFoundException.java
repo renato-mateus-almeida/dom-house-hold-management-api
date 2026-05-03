@@ -1,9 +1,9 @@
 package io.github.renato_mateus_almeida.dom_house_management.exception;
 
-public class ApplicationException extends Exception {
+public class NotFoundException extends Exception {
     private final String method;
 
-    public ApplicationException(String method, String message) {
+    public NotFoundException(String method, String message) {
         super(message);
         this.method = method;
     }
