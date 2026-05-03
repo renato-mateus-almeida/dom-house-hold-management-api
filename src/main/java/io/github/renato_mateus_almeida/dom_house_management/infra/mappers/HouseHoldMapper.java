@@ -17,5 +17,12 @@ public class HouseHoldMapper implements Mapper<HouseHold, HouseHoldDTO> {
     public HouseHold toEntity(HouseHoldDTO dto) {
         return new HouseHold(dto.description(), dto.observation(), dto.regionalKwhPrice());
     }
+
+    @Override
+    public HouseHold parse(Long id, HouseHoldDTO dto) {
+        var newInstance = toEntity(dto);
+        newInstance.setId(id);
+        return newInstance;
+    }
     
 }

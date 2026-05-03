@@ -51,6 +51,22 @@ public class HouseHoldService {
         return dto;
     }
 
+    public HouseHoldDTO update(Long id, HouseHoldDTO dto) throws HouseHoldNotFoundException {
+        houseHoldRepository.save(
+            houseHoldRepository.findById(id)
+                .map(foundedHouseHold -> mapper.parse(id, dto))
+                .orElseThrow(() -> new HouseHoldNotFoundException("[PUT]", id))
+        );
+        return dto;
+    }
+
+    public void delete(Long id) throws HouseHoldNotFoundException {
+        houseHoldRepository.delete(
+            houseHoldRepository.findById(id)
+                .orElseThrow(() -> new HouseHoldNotFoundException("[DELETE]", id))
+        );
+    }
+
     public Double calculateTotalWattageConsumeByHouseHoldId(Long houseHoldId) {
         return roomRepository
                 .findTotalWattageByRoomIdEquals(houseHoldId).stream()
